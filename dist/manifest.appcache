@@ -1,0 +1,24 @@
+CACHE MANIFEST
+
+#version 1.0 11-15-2015 15:11
+
+CACHE:
+
+#images
+
+
+#internal HTML documents
+http://localhost:8000/
+
+#style sheets
+http://localhost:8000/css/main.css
+http://localhost:8000/css/normalize.min.css
+
+#style sheet images
+
+
+#javascript files
+http://localhost:8000/js/bundle.js
+
+NETWORK:
+*

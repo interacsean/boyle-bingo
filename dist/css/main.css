@@ -1,0 +1,272 @@
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body{
+  background-color:yellow;
+}
+
+html, body, .boyleBingoApp {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bingoCard{
+  background-color:#fff;
+  height: calc(100% - 4em);
+  width: calc(100% - 1em);
+  margin: 0.5em 0.5em 0;
+  position:relative;
+}
+
+.cardCell {
+  width: calc(20%);
+  height: calc(20%);
+  padding: 0.25em;
+  vertical-align: middle;
+  text-align: center;
+}
+.cardCell>p{
+  margin:0;
+  font-size:0.8em;
+  width:100%;
+  height:100%;
+  background-color: transparent;
+  overflow: hidden;
+}
+.cardCell-1{
+  color:666;
+  background-color: #ffa;
+  text-decoration: line-through;
+}
+.editMode .cardCell-1{
+  background-color: #fee;
+}
+
+.cardCell>textarea{
+  width:95%;
+  height:95%;
+  border:none;
+  background-color: transparent;
+  padding:0;
+}
+.cardCell>textarea:focus{
+  width: calc(100% - 4em - 6px);
+  height: calc(100% - 5em - 6px);
+  padding: 1em;
+  border: 3px solid #333;
+  position:absolute;
+  background-color:#fff;
+  top: 1.5em;
+  left: 1em;
+  box-shadow:  0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.gamePanel{
+  width: calc(100% - 1em);
+  margin: 0.5em;
+  text-align:right;
+}
+.gamePanel>a{
+  background-color:#66F;
+  font-weight: bold;
+  color: #fff;
+  display: inline-block;
+  padding:.25em .5em;
+}
+.closeBut{
+    position: absolute;
+    top: 4.5em;
+    z-index: 10;
+    right: 1.7em;
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
