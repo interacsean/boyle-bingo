@@ -67,6 +67,10 @@ html, body, .boyleBingoApp {
   padding: 0;
 }
 
+.boyleBingoApp>h1{
+
+}
+
 .bingoCard{
   background-color:#fff;
   height: calc(100% - 4em);
@@ -90,12 +94,12 @@ html, body, .boyleBingoApp {
   background-color: transparent;
   overflow: hidden;
 }
-.cardCell-1{
+.cardCell-checked{
   color:666;
   background-color: #ffa;
   text-decoration: line-through;
 }
-.editMode .cardCell-1{
+.editMode .cardCell-checked{
   background-color: #fee;
 }
 

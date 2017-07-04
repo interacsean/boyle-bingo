@@ -20,19 +20,44 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script-->
     </head>
     <body>
-        <div ng-app="boyleBingo" ng-controller="BingoPicker as vm" class="boyleBingoApp" ng-class="{'editMode' : vm.editMode, 'zoomed' : vm.zoomed}">
+        <div 
+            ng-app="boyleBingo" 
+            ng-controller="BingoPicker as vm" 
+            class="boyleBingoApp" 
+            ng-class="{'editMode' : vm.editMode, 'zoomed' : vm.zoomed}"
+        >
+
+          <h1>Boyle Bingo!</h1>
+        
           <div class="gamePanel">
             <a ng-show="vm.zoomed" class="closeBut">X</a>
             <a ng-click="vm.toggleEditMode();">{{ vm.editMode ? "Play" : "Edit" }}</a>
           </div>
+
           <table class="bingoCard" border="1">
+
             <tr ng-repeat="(rK, row) in vm.card">
-               <td ng-repeat="(cK, col) in row track by $index" class="cardCell" ng-class="'cardCell-'+vm.card[rK][cK].state">
-                 <textarea ng-if="(vm.editMode && !(rK==2 && cK==2))" ng-model="vm.card[rK][cK].txt" ng-focus="vm.zoomed=1" ng-blur="vm.zoomed=0"></textarea>
-                 <p ng-if="((vm.editMode==0) || (rK==2 && cK==2))" ng-click="vm.hitSquare(rK, cK);">{{ vm.card[rK][cK].txt }}</p>
+
+              <td 
+                ng-repeat="(cK, col) in row track by $index" 
+                class="cardCell" 
+                ng-class="'cardCell-'+(vm.card[rK][cK].state ? 'checked' : '')"
+              >
+                <textarea 
+                  ng-if="vm.squareIsEditable(rK,cK)" 
+                  ng-model="vm.card[rK][cK].txt" 
+                  ng-focus="vm.zoomed=1" 
+                  ng-blur="vm.zoomed=0"
+                ></textarea>
+                <p 
+                    ng-if="!vm.squareIsEditable(rK,cK)" 
+                    ng-click="vm.hitSquare(rK, cK);">{{ vm.card[rK][cK].txt }}</p>
                </td>
+
             </tr>
+
           </table>
+
         </div>
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>-->

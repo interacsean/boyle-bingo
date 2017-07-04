@@ -60,76 +60,86 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_local_storage__);
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('boyleBingo', ['LocalStorageModule'])
-.config(function(localStorageServiceProvider){
-  localStorageServiceProvider.setPrefix('boyleBingo');
-})
-.service('bingoCard', ['localStorageService', '$rootScope', function(localStorageService, $rootScope){
-  this.bingoCard = [];
-
-  this.init = function(){
-    if (!localStorageService.get('card')){
-      this.bingoCard = Array.apply(null, Array(5)).map(Number.prototype.valueOf,1);
-      var self = this;
-      __WEBPACK_IMPORTED_MODULE_0_angular___default.a.forEach(this.bingoCard, function(v, k){
-        self.bingoCard[k] = [{'txt':'', 'state':0},{'txt':'', 'state':0},{'txt':'', 'state':0},{'txt':'', 'state':0},{'txt':'', 'state':0}];
-          //Array.apply(null, Array(5)).map(Number.prototype.valueOf,1);
-      });
-      this.bingoCard[2][2] = {'txt':'(Free)', 'state':1};
-    }else{
-      this.bingoCard = localStorageService.get('card');
-    };
-    return this.bingoCard;
-  }
-  this.save = function(card){
-    localStorageService.set('card',card);
-  }
-}])
-.controller('BingoPicker', function($scope, bingoCard) {
-  var vm=this;
-  vm.card = bingoCard.init();
-
-  $scope.$watch("vm.card", function(value){
-      bingoCard.save(value);
-  }, true);
-  vm.editMode = 0;
-  vm.toggleEditMode = function(){
-    vm.editMode = 1-vm.editMode;
-  }
-  vm.hitSquare = function(rK, cK){
-    if (rK != 2 || cK != 2){
-      vm.card[rK][cK].state = 1-vm.card[rK][cK].state;
-    }
-  }
-});
+__webpack_require__(4);
+module.exports = angular;
 
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
-module.exports = angular;
+__webpack_require__(5);
+module.exports = 'LocalStorageModule';
 
 
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_local_storage__);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('boyleBingo.service.bingoCard', [])
+  .service('bingoCard', ['localStorageService', '$rootScope', function(localStorageService, $rootScope){
+    this.bingoCard = [];
+
+    this.init = function(){
+      if (!localStorageService.get('card') || 1){
+        this.bingoCard = Array.apply(null, Array(5)).map(Number.prototype.valueOf,1);
+        var self = this;
+        __WEBPACK_IMPORTED_MODULE_0_angular___default.a.forEach(this.bingoCard, function(v, k){
+          //self.bingoCard[k] = [{'txt':'', 'state':0},{'txt':'', 'state':0},{'txt':'', 'state':0},{'txt':'', 'state':0},{'txt':'', 'state':0}];
+            self.bingoCard[k] = Array.apply(null, Array(5)).map(function(){ return {'txt':'', 'state':0}; });
+        });
+        this.bingoCard[2][2] = {'txt':'(Free)', 'state':1};
+      }else{
+        this.bingoCard = localStorageService.get('card');
+      };
+      return this.bingoCard;
+    }
+    this.save = function(card){
+      localStorageService.set('card',card);
+    }
+  }])
+  .name);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_local_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_local_storage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controller_bingo_picker__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_bingo_card__ = __webpack_require__(2);
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('boyleBingo', [__WEBPACK_IMPORTED_MODULE_1_angular_local_storage___default.a, __WEBPACK_IMPORTED_MODULE_2__controller_bingo_picker__["a" /* default */], __WEBPACK_IMPORTED_MODULE_3__service_bingo_card__["a" /* default */]])
+.config(function(localStorageServiceProvider){
+  localStorageServiceProvider.setPrefix('boyleBingo');
+}));
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 /**
@@ -33506,15 +33516,7 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(4);
-module.exports = 'LocalStorageModule';
-
-
-/***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /**
@@ -34104,6 +34106,40 @@ angular
       }];
   });
 })(window, window.angular);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_bingo_card__ = __webpack_require__(2);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('boyleBingo.controller.bingoPicker', [__WEBPACK_IMPORTED_MODULE_1__service_bingo_card__["a" /* default */]])
+  .controller('BingoPicker', function($scope, bingoCard) {
+    var vm=this;
+    vm.card = bingoCard.init();
+
+    $scope.$watch("vm.card", function(value){
+        bingoCard.save(value);
+    }, true);
+    vm.editMode = 0;
+    vm.toggleEditMode = function() {
+      vm.editMode = 1-vm.editMode;
+    }
+    vm.hitSquare = function(rK, cK) {
+      if (rK != 2 || cK != 2){
+        vm.card[rK][cK].state = 1-vm.card[rK][cK].state;
+      }
+    }
+    vm.squareIsEditable = function (rK,cK) {
+      return vm.editMode===1 && !(rK===2 && cK===2)
+    }
+  })
+  .name);
 
 /***/ })
 /******/ ]);

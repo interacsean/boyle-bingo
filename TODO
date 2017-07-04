@@ -5,4 +5,4 @@ Compress
 
 Looping to set the empty 
 
-Use a template for the controller(!?)
+Use a template in 'ng-controller as' the controller(!?)
