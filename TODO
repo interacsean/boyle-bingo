@@ -1,8 +1,6 @@
 TODO
 
+Use a template in 'ng-controller as' the controller(!?)
+
 SCSS-ify the CSS
 Compress
-
-Looping to set the empty 
-
-Use a template in 'ng-controller as' the controller(!?)
